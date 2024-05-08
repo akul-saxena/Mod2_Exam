@@ -16,7 +16,7 @@ try {
     {
       session_start();
       if ($_SESSION['registered'] !== true) {
-        header('Location: /index.php');
+        header('Location: /');
         // Exit after redirecting
         exit;
       }
@@ -26,9 +26,9 @@ try {
   // Initialize the session manager
   new SessionManager();
 } catch (Exception $e) {
-  // Display error message and redirect to index.php
+  // Display error message and redirect to login
   echo "<script>alert('Oops: " . addslashes($e->getMessage()) . "');</script>";
-  echo "<script>window.location.href = '/index.php';</script>";
+  echo "<script>window.location.href = '/';</script>";
   exit;
 }
 ?>
@@ -49,8 +49,8 @@ try {
     <section class="navbar container">
       <div class='nav-left'>
         <!-- Navigation links -->
-        <a href="../php/home.php">Home</a>
-        <a href="../php/stock-entry.php">Stock Entry</a>
+        <a href="/home">Home</a>
+        <a href="/stock-entry">Stock Entry</a>
       </div>
       <div class='nav-right'>
         <a href="../php/logout.php">Logout</a>
@@ -83,10 +83,10 @@ try {
         <!--Entries from script file-->
       </section><br>
       <!--Link to edit stocks-->
-      <a href="edit-user-stock.php">Edit Stocks</a><br>
-      <br><a href="../php/delete-user-stock.php">Delete Stock</a><br>
+      <a href="/edit-user-stock">Edit Stocks</a><br>
+      <br><a href="/delete-user-stock">Delete Stock</a><br>
     </section>
-    <br><a href="home.php">Go back to Home Page</a>
+    <br><a href="/home">Go back to Home Page</a>
   </main>
   <script>
     var username = "<?php echo $_SESSION['username'] ?>";

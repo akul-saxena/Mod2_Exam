@@ -10,7 +10,7 @@ session_start();
 
 // Redirect to index.php if user is not registered
 if ($_SESSION['registered'] !== true) {
-  header('Location: ../index.php');
+  header('Location: /');
 }
 ?>
 
@@ -33,8 +33,8 @@ if ($_SESSION['registered'] !== true) {
     <section class="navbar container">
       <div class='nav-left'>
         <!-- Navigation links -->
-        <a href="../php/home.php">Home</a>
-        <a href="../php/stock-entry.php">Stock Entry</a>
+        <a href="/home">Home</a>
+        <a href="/stock-entry">Stock Entry</a>
       </div>
       <div class='nav-right'>
         <a href="../php/logout.php">Logout</a>
@@ -50,9 +50,9 @@ if ($_SESSION['registered'] !== true) {
     <section class="stocks">
       <!-- Title -->
       <h2>Stocks :</h2>
-      <br><a href="../php/stock-entry.php">Add Stock</a><br>
-      <br><a href="../php/edit-user-stock.php">Edit Stock</a><br>
-      <br><a href="../php/delete-user-stock.php">Delete Stock</a><br>
+      <br><a href="/stock-entry">Add Stock</a><br>
+      <br><a href="/edit-user-stock">Edit Stock</a><br>
+      <br><a href="/delete-user-stock">Delete Stock</a><br>
       <!-- Table for displaying stocks -->
       <br>
       <section class="stocks-table">

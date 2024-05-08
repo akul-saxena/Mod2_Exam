@@ -100,11 +100,11 @@ class StockUpdater
       }
 
       $conn->commit();
-      echo "<script>window.location.href = '../php/home.php';</script>";
+      echo "<script>window.location.href = '/home';</script>";
       exit;
     } catch (Exception $e) {
       echo "<script>alert('Oops: " . addslashes($e->getMessage()) . "');</script>";
-      echo "<script>window.location.href = '../php/stock-entry.php';</script>";
+      echo "<script>window.location.href = '/stock-entry';</script>";
       exit;
     } finally {
       $this->db->closeConnection();

@@ -10,7 +10,7 @@ session_start();
 
 // Redirect to home.php if user is already registered
 if ($_SESSION['registered'] == true) {
-  header('Location: ../php/home.php');
+  header('Location: /home');
 }
 ?>
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ if ($_SESSION['registered'] == true) {
           <input type="email" name="email" id="email">
         </div><br>
         <input type="submit" value="Sign Up" name='submit'><br><br>
-        <a href="../index.php">Login </a>
+        <a href="/">Login </a>
       </form>
     </section>
   </section>

@@ -79,8 +79,8 @@ new SessionManager();
       <section class="stocks-table">
         <!-- Data coming from AJAX -->
       </section>
-      <br><a href="../php/stock-entry.php">Add Stock</a><br>
-      <br><a href="../php/edit-user-stock.php">Edit Stock</a>
+      <br><a href="/stock-entry">Add Stock</a><br>
+      <br><a href="/edit-user-stock">Edit Stock</a>
     </section>
     <!-- Back to home page link -->
     <br><a href="home.php">Go back to Home Page</a>

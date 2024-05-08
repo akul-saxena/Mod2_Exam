@@ -44,7 +44,7 @@ $(document).ready(function () {
       tableHTML += `
           <tr>
             <td>${stock.id}</td>
-            <td>${stock.stock_name}</td>
+            <th>${stock.stock_name}</th>
             <td>${stock.stock_price}</td>
             <td>${stock.created_date}</td>
             <td>${stock.last_updated}</td>

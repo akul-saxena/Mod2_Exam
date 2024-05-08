@@ -55,7 +55,7 @@ try {
           // Set session variables upon successful authentication
           $_SESSION['registered'] = true;
           $_SESSION['username'] = $username;
-          echo "<script>window.location.href = '../php/home.php';</script>";
+          echo "<script>window.location.href = '/home';</script>";
         }
       }
     }
@@ -82,7 +82,7 @@ try {
     $authenticator->authenticateUser($username, $password);
   }
 } catch (Exception $e) {
-  // Display error message and redirect to index.php
+  // Display error message and redirect to login
   echo "<script>alert('Oops: " . addslashes($e->getMessage()) . "');</script>";
-  echo "<script>window.location.href = '../index.php';</script>";
+  echo "<script>window.location.href = '/login';</script>";
 }

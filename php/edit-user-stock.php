@@ -15,7 +15,7 @@ class SessionManager
   {
     session_start();
     if ($_SESSION['registered'] !== true) {
-      header('Location: /index.php');
+      header('Location: /');
       exit; // Exit after redirecting
     }
   }
@@ -44,8 +44,8 @@ new SessionManager();
     <section class="navbar container">
       <div class='nav-left'>
         <!-- Navigation links -->
-        <a href="../php/home.php">Home</a>
-        <a href="../php/stock-entry.php">Stock Entry</a>
+        <a href="/home">Home</a>
+        <a href="/stock-entry">Stock Entry</a>
       </div>
       <div class='nav-right'>
         <a href="../php/logout.php">Logout</a>
@@ -87,11 +87,11 @@ new SessionManager();
       <section class="stocks-table">
         <!-- Data coming from AJAX -->
       </section>
-      <br><a href="../php/stock-entry.php">Add Stock</a><br>
-      <br><a href="../php/delete-user-stock.php">Delete Stock</a><br>
+      <br><a href="/stock-entry">Add Stock</a><br>
+      <br><a href="/delete-user-stock">Delete Stock</a><br>
     </section>
     <!-- Back to home page link -->
-    <br><a href="home.php">Go back to Home Page</a>
+    <br><a href="/home">Go back to Home Page</a>
   </main>
   <script>
     // Passing username to JavaScript

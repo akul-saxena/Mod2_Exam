@@ -62,7 +62,7 @@ try {
                 $this->conn->commit();
                 $_SESSION['registered'] = true;
                 $_SESSION["username"] = $username;
-                echo "<script>window.location.href = '../php/home.php';</script>";
+                echo "<script>window.location.href = '/home';</script>";
                 exit;
             }
         }
@@ -95,8 +95,8 @@ try {
         $userRegistration->registerUser($userData);
     }
 } catch (Exception $e) {
-    // Display error message and redirect to login.php
+    // Display error message and redirect to signup
     echo "<script>alert('Oops: " . addslashes($e->getMessage()) . "');</script>";
-    echo "<script>window.location.href = '../php/signup.php';</script>";
+    echo "<script>window.location.href = '/signup';</script>";
     exit;
 }

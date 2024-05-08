@@ -44,8 +44,8 @@ new SessionManager();
     <section class="navbar container">
       <div class='nav-left'>
         <!-- Navigation links -->
-        <a href="../php/home.php">Home</a>
-        <a href="../php/stock-entry.php">Stock Entry</a>
+        <a href="/home">Home</a>
+        <a href="/stock-entry">Stock Entry</a>
       </div>
       <div class='nav-right'>
         <a href="../php/logout.php">Logout</a>
@@ -83,7 +83,7 @@ new SessionManager();
       <br><a href="/edit-user-stock">Edit Stock</a>
     </section>
     <!-- Back to home page link -->
-    <br><a href="home.php">Go back to Home Page</a>
+    <br><a href="/home">Go back to Home Page</a>
   </main>
   <script>
     // Passing username to JavaScript

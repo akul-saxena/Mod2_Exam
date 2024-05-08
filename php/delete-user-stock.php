@@ -33,7 +33,7 @@ new SessionManager();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Include jQuery library -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <title>Edit User Stock</title>
+  <title>Delete User Stock</title>
   <!-- Include custom stylesheet -->
   <link rel="stylesheet" href="../stylesheets/stockentrystyles.css">
 </head>
@@ -60,24 +60,16 @@ new SessionManager();
     ?>
     <!-- Form section -->
     <section class="form-container">
-      <form action="../php/edit-stocks.php" class="stocks" method="post">
+      <form action="../php/delete-stock.php" class="stocks" method="post">
         <!-- Form title -->
-        <h3>Edit stocks:</h3>
+        <h3>Delete stocks:</h3>
         <!-- Input fields -->
         <div>
           <label for="stockID">Enter stock id :</label>
           <input type="text" name="stockID" id="stockID" placeholder="Stock ID">
         </div>
-        <div>
-          <label for="stockName">Edit Stock Name :</label>
-          <input type="text" name="stockName" id="stockName" placeholder="Stock Name">
-        </div>
-        <div>
-          <label for="stockPrice">Edit Stock Price : </label>
-          <input type="text" name="stockPrice" id="stockPrice" placeholder="Stock Name">
-        </div>
         <!-- Submit button -->
-        <input type="submit" value="Edit Stock" name="submit">
+        <input type="submit" value="DeleteStock" name="submit">
       </form>
     </section>
     <!-- User stocks section -->
@@ -88,7 +80,7 @@ new SessionManager();
         <!-- Data coming from AJAX -->
       </section>
       <br><a href="../php/stock-entry.php">Add Stock</a><br>
-      <br><a href="../php/delete-user-stock.php">Delete Stock</a><br>
+      <br><a href="../php/edit-user-stock.php">Edit Stock</a>
     </section>
     <!-- Back to home page link -->
     <br><a href="home.php">Go back to Home Page</a>

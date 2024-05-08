@@ -15,7 +15,11 @@ header {
   padding: 10px 0;
   height: 80px;
 }
-
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -24,8 +28,11 @@ header {
   margin: 0 auto;
   padding: 0 20px;
 }
+.nav-left {
+  display: flex;
+}
 
-nav a {
+.navbar a {
   color: #fff;
   text-decoration: none;
   margin-left: 20px;

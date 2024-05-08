@@ -1,15 +1,37 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 /**
- * Starts the session and redirects to index.php if user is not registered.
+ * @file
+ * Handles stock entry and redirects if user is not registered.
  */
-session_start();
-if ($_SESSION['registered'] !== true) {
-  header('Location: /index.php');
+
+try {
+  // Class for handling user session
+  class SessionManager
+  {
+    /**
+     * Constructor method to start the session and redirect if user is not registered.
+     */
+    public function __construct()
+    {
+      session_start();
+      if ($_SESSION['registered'] !== true) {
+        header('Location: /index.php');
+        // Exit after redirecting
+        exit;
+      }
+    }
+  }
+
+  // Initialize the session manager
+  new SessionManager();
+} catch (Exception $e) {
+  // Display error message and redirect to index.php
+  echo "<script>alert('Oops: " . addslashes($e->getMessage()) . "');</script>";
+  echo "<script>window.location.href = '/index.php';</script>";
+  exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,18 +47,25 @@ if ($_SESSION['registered'] !== true) {
   <!--Navbar-->
   <header>
     <section class="navbar container">
-      <nav>
+      <div class='nav-left'>
+        <!-- Navigation links -->
         <a href="../php/home.php">Home</a>
         <a href="../php/stock-entry.php">Stock Entry</a>
+      </div>
+      <div class='nav-right'>
         <a href="../php/logout.php">Logout</a>
-      </nav>
+      </div>
     </section>
   </header>
   <main class="container">
+    <?php
+    $usercap = ucfirst($_SESSION['username']);
+    echo "<h1 align='center'>Hello " . $usercap . "</h1><br>";
+    ?>
     <!--Stock entry form-->
     <section class="form-container">
       <form action="../php/stock-entry-check.php" class="stocks" method="post">
-        <h3>Stock Details</h3>
+        <h3>Add Stock</h3>
         <div>
           <label for="stockName">Enter Stock Name :</label>
           <input type="text" name="stockName" id="stockName" placeholder="Stock Name">
@@ -52,11 +81,12 @@ if ($_SESSION['registered'] !== true) {
       <h2>Here are your stocks:</h2>
       <section class="stocks-table">
         <!--Entries from script file-->
-      </section>
+      </section><br>
       <!--Link to edit stocks-->
-      <a href="edit-user-stock.php">Edit Stocks</a>
+      <a href="edit-user-stock.php">Edit Stocks</a><br>
+      <br><a href="../php/delete-user-stock.php">Delete Stock</a><br>
     </section>
-    <br><br><a href="home.php">Go back to Home Page</a>
+    <br><a href="home.php">Go back to Home Page</a>
   </main>
   <script>
     var username = "<?php echo $_SESSION['username'] ?>";

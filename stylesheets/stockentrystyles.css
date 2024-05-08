@@ -30,8 +30,11 @@ header {
   margin-top: 20px;
   padding: 0 20px;
 }
+.nav-left {
+  display: flex;
+}
 
-nav a {
+.navbar a {
   color: #fff;
   text-decoration: none;
   margin-left: 20px;

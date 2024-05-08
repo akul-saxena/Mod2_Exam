@@ -1,9 +1,14 @@
 <?php
 
 /**
+ * @file
  * Starts the session and redirects to home.php if user is registered.
  */
+
+// Start session
 session_start();
+
+// Redirect to home.php if user is already registered
 if ($_SESSION['registered'] == true) {
   header('Location: ../php/home.php');
 }
@@ -21,7 +26,7 @@ if ($_SESSION['registered'] == true) {
 <body>
   <section>
     <section>
-      <form action="/signupcheck.php" method='post' id='myForm'>
+      <form action="/php/signupcheck.php" method='post' id='myForm'>
         <h1 id="page-heading">Sign Up</h1>
         <div>
           <label for="fname">Firstname:</label>

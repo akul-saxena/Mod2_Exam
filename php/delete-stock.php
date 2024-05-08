@@ -45,13 +45,13 @@ class Database
 
 /**
  * @file
- * Contains the StockUpdater class for handling stock entry updates.
+ * Contains the StockDeleter class for handling stock entry updates.
  */
 
 /**
- * StockUpdater class for updating stock entries.
+ * StockDeleter class for updating stock entries.
  */
-class StockUpdater
+class StockDeleter
 {
   private $db;
 
@@ -69,32 +69,25 @@ class StockUpdater
   /**
    * Update stock entries.
    */
-  public function updateStock()
+  public function deleteStock()
   {
     session_start();
     try {
       $conn = $this->db->getConnection();
-
-      $stockName = $_POST['stockName'];
-      $stockPrice = $_POST['stockPrice'];
       $id = $_POST['stockID'];
       $username = $_SESSION["username"];
-
-      if (empty($stockName) || empty($stockPrice)) {
-        throw new Exception("Please fill in all fields");
-      }
 
       date_default_timezone_set('Asia/Kolkata');
       $createdDate = date('Y-m-d H:i:s', time());
       $updatedDate = $createdDate;
 
       $conn->begin_transaction();
-      $query = "UPDATE stock_entries SET stock_name = ?, stock_price = ? WHERE id = ? AND username = ?";
+      $query = "DELETE FROM stock_entries WHERE id = ? AND username = ?";
       $stmt = $conn->prepare($query);
       if (!$stmt) {
         throw new Exception("Error preparing statement: " . $conn->error);
       }
-      $stmt->bind_param("ssis", $stockName, $stockPrice, $id, $username);
+      $stmt->bind_param("is", $id, $username);
       if (!$stmt->execute()) {
         throw new Exception("Error executing statement: " . $stmt->error);
       }
@@ -114,6 +107,6 @@ class StockUpdater
 
 if (isset($_POST["submit"])) {
   $db = new Database();
-  $stockUpdater = new StockUpdater($db);
-  $stockUpdater->updateStock();
+  $StockDeleter = new StockDeleter($db);
+  $StockDeleter->deleteStock();
 }

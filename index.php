@@ -1,12 +1,26 @@
 <?php
 
 /**
- * Starts the session and redirects to home.php if user is registered.
+ * Class SessionManager handles session-related operations.
  */
-session_start();
-if ($_SESSION['registered'] == true) {
-  header('Location: ../php/home.php');
+class SessionManager
+{
+  /**
+   * Constructor method to start the session and redirect if the user is already registered.
+   */
+  public function __construct()
+  {
+    session_start();
+    // Redirect to home.php if the user is already registered
+    if ($_SESSION['registered'] == true) {
+      header('Location: ../php/home.php');
+      exit; // Stop script execution after redirection
+    }
+  }
 }
+
+// Initialize the session manager
+new SessionManager();
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +31,6 @@ if ($_SESSION['registered'] == true) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css">
-
 </head>
 
 <body>
